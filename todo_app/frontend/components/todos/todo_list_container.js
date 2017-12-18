@@ -6,10 +6,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  receiveTodo: (todo) => dispatch(receiveTodo(todo))
+  receiveTodo: (todo) => dispatch(receiveTodo(todo)),
+  removeTodo: (todo) => dispatch(removeTodo(todo))
 });
 
-export const TodoListContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(TodoList);

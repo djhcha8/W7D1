@@ -2,12 +2,12 @@ import React from 'react';
 import TodoListItem from '../todo_list/todo_list_item';
 import TodoForm from '../todo_list/todo_form';
 
-const TodoList = ({ todos, receiveTodo }) => {
+const TodoList = ({ todos, receiveTodo, removeTodo }) => {
   return (
     <div>
       <ul>
         {todos.map((todo) =>
-          <TodoListItem todo={ todo } />
+          <TodoListItem todo={ todo } removeTodo={removeTodo} />
         )}
       </ul>
       <TodoForm receiveTodo={receiveTodo} />
