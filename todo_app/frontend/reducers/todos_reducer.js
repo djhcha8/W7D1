@@ -1,5 +1,4 @@
 import { RECEIVE_TODO, RECEIVE_TODOS, REMOVE_TODO }  from '../actions/todo_actions';
-import store from '../store/store';
 
 const initialState = {
   1: {
@@ -30,14 +29,10 @@ const todosReducer = (state = initialState, action) => {
       return newState;
 
     case REMOVE_TODO:
-      const storeTodos = store.getState().todos;
-      for (let todoId in storeTodos) {
-        todoId = parseInt(todoId);
-        if (todoId !== action.todo.id) {
-          newState[todoId] = storeTodos[todoId];
-        }
-      }
+      newState = Object.assign({}, state);
+      delete newState[action.todo.id];
       return newState;
+
     default:
       return state;
   }

@@ -12,7 +12,7 @@ class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.receiveTodo({title: this.state.title, body: this.state.body, id: util.uniqueId()});
+    this.props.receiveTodo({title: this.state.title, body: this.state.body, id: util.uniqueId(), done: false});
   }
 
   updateTitle(e) {
